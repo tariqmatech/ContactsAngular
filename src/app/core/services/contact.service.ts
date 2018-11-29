@@ -1,21 +1,41 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { AddContact } from '../interfaces/add-contact';
-import { GetAllContacts } from '../interfaces/get-all-contacts';
-import { GetList } from '../interfaces/get-list';
+import { HttpClient, HttpParams } from '@angular/common/http';
+import { Observable,of } from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+
+import { AppGlobals } from '../../app.global';
+import { Response, GetAllContacts, GetList, AddContact } from '../models/index';
+import { HttpErrorHandler, HandleError } from './index';
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
-  ROOT_URL = `http://internal.matechco.com:8015`;
-  
-  constructor(private http: HttpClient) {}
+  private handleError: HandleError;
 
-  GetAllContacts(contactID) {
-    return this.http.get<GetAllContacts[]>(`${this.ROOT_URL}/Contacts/Get/`+ contactID);
+  constructor(
+    private http: HttpClient,
+    private appGlobals: AppGlobals,
+    httpErrorHandler: HttpErrorHandler) {
+    this.handleError = httpErrorHandler.createHandleError('AppSetupService');
   }
-  GetList() {
-    return this.http.get<GetList[]>(`${this.ROOT_URL}/Contacts/List?PageOffset=1&PageSize=10`);
+
+  GetAllContacts(): Observable<Response<GetAllContacts>> {
+    return this.http.get<Response<GetAllContacts>>(this.appGlobals.getAllContacts, {withCredentials:true})
+    .pipe(map((response: Response<GetAllContacts>) => response));
+  }
+
+  GetList(): Observable<Response<GetList>> {
+    return this.http.get<Response<GetList>>(this.appGlobals.getList, {withCredentials:true})
+    .pipe(map((response: Response<GetList>) => response));
   }
   
+
+  postAddContactData(request): Observable<Response<AddContact>> {
+    const params = new HttpParams();
+    return this.http.post<Response<AddContact>>(this.appGlobals.postLogin +
+      request.APIMethod, request, { params, withCredentials: true })
+    .pipe(map((response: Response<AddContact>) => response));
+  }
 }

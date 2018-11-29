@@ -1,0 +1,109 @@
+{
+	"id": "179df24c-4a2b-4f39-c861-173e8770f48b",
+	"name": "ContactAPI",
+	"description": "",
+	"order": [
+		"d9acfab0-9757-31cd-f5e2-6113fcadb7bc",
+		"c7602910-68c2-dc64-0a19-bdbcd9824062",
+		"f0a2c550-3103-5c75-acd2-671312c46817"
+	],
+	"folders": [],
+	"folders_order": [],
+	"timestamp": 1543435532027,
+	"owner": 0,
+	"public": false,
+	"requests": [
+		{
+			"id": "c7602910-68c2-dc64-0a19-bdbcd9824062",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:51478/Contacts/Get/2",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "179df24c-4a2b-4f39-c861-173e8770f48b",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://localhost:51478/Contacts/Get/2",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1543435550853,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		},
+		{
+			"id": "d9acfab0-9757-31cd-f5e2-6113fcadb7bc",
+			"headers": "Content-Type: application/json\n",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"url": "http://localhost:51478/Contacts/Save",
+			"queryParams": [],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "POST",
+			"collectionId": "179df24c-4a2b-4f39-c861-173e8770f48b",
+			"data": [],
+			"dataMode": "raw",
+			"name": "http://localhost:51478/Contacts/Save",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1543435538377,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"rawModeData": "{\n\tContactId:2,\n\tFirstName:\"M.Adil\",\n\tLastName:\"Younus\",\n\tGender:\"1\",\n\tDateOfBirth:\"11/28/2018\",\n\tContactDetails:[{\n\t\tContactDetailId:1,\n\t\tContactTypeId:1,\n\t\tContactInfo:\"update\"\n\t},\n\t{\n\t\tContactDetailId:0,\n\t\tContactTypeId:1,\n\t\tContactInfo:\"insert\"\n\t}\n\t]\n}"
+		},
+		{
+			"id": "f0a2c550-3103-5c75-acd2-671312c46817",
+			"headers": "",
+			"headerData": [],
+			"url": "http://localhost:51478/Contacts/List?PageOffset=1&PageSize=10",
+			"queryParams": [
+				{
+					"key": "PageOffset",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "PageSize",
+					"value": "10",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"pathVariables": {},
+			"pathVariableData": [],
+			"preRequestScript": null,
+			"method": "GET",
+			"collectionId": "179df24c-4a2b-4f39-c861-173e8770f48b",
+			"data": null,
+			"dataMode": "params",
+			"name": "http://localhost:51478/Contacts/List?PageOffset=1&PageSize=10",
+			"description": "",
+			"descriptionFormat": "html",
+			"time": 1543435556322,
+			"version": 2,
+			"responses": [],
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {}
+		}
+	]
+}

@@ -20,23 +20,34 @@
                   </div>
                   <div class="form-group">
                       <label>Date of Birth</label>
-                      <input type="text" formControlName="Date of Birth" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-                      <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                          <div *ngIf="f.email.errors.required">Date of Birth is required</div>
-                          <div *ngIf="f.email.errors.email">Date of Birth must be a valid date</div>
-                      </div>
+                      <input type="date" formControlName="Date of Birth" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />                    
                   </div>
                   <div class="form-group">
-                      <label>Gender</label>
-                      <input type="password" formControlName="Gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-                      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                          <div *ngIf="f.password.errors.required">Gender is required</div>
-                          <div *ngIf="f.password.errors.minlength">Gender must be at least 6 characters</div>
-                      </div>
+                      <label>Email</label>
+                      <input type="email" formControlName="Gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />               
                   </div>
-                  
                   <div class="form-group">
-                      <button class="btn btn-primary">Register</button>
+                    <div class="radio">
+                        <label><input type="radio" name="optradio" checked>Male</label>
+                      </div>
+                      <div class="radio">
+                        <label><input type="radio" name="optradio">Female</label>
+                      </div>               
+                </div>
+                <div class="form-group">
+                    <label for="sel1">Select Contact details:</label>
+                    <select class="form-control" id="sel1">
+                      <option>Work Phone</option>
+                      <option>Cell Phone</option>
+                      <option>Home Phone</option>
+                      <option>Facebook</option>
+                      <option>LinkedIn</option>
+                      <option>Twitter</option>
+                      <option>Instagram</option>                      
+                    </select>
+                  </div>
+                  <div class="form-group">
+                      <button class="btn btn-primary">Add Contact</button>
                   </div>
               </form>
           </div>
